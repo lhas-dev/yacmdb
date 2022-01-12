@@ -1,0 +1,2 @@
+module ServerPeopleHelper
+end

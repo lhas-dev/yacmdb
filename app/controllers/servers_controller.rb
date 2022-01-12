@@ -10,6 +10,7 @@ class ServersController < ApplicationController
   def show
     @hardware = Hardware.new
     @server_software = ServerSoftware.new
+    @server_people = ServerPerson.new
   end
 
   # GET /servers/new

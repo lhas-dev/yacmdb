@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_12_031830) do
+ActiveRecord::Schema.define(version: 2022_01_12_033134) do
 
   create_table "hardwares", force: :cascade do |t|
     t.integer "server_id", null: false
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(version: 2022_01_12_031830) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "team"
+  end
+
+  create_table "server_people", force: :cascade do |t|
+    t.integer "server_id", null: false
+    t.integer "people_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["people_id"], name: "index_server_people_on_people_id"
+    t.index ["server_id"], name: "index_server_people_on_server_id"
   end
 
   create_table "server_softwares", force: :cascade do |t|
@@ -55,6 +65,8 @@ ActiveRecord::Schema.define(version: 2022_01_12_031830) do
   end
 
   add_foreign_key "hardwares", "servers"
+  add_foreign_key "server_people", "people", column: "people_id"
+  add_foreign_key "server_people", "servers"
   add_foreign_key "server_softwares", "servers"
   add_foreign_key "server_softwares", "softwares"
 end
