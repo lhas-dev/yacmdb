@@ -23,7 +23,7 @@
           <td><%= software.name %>
           </td>
           <td><%= software.category %></td>
-          <td><%= software.expires_at.strftime("%d/%m/%Y") %></td>
+          <td><%= software.expires_at.strftime("%d/%m/%Y") if software.expires_at %></td>
           <td>
             <div class="d-flex">
               <%= link_to "Show", software, class: "btn btn-outline-primary" %>

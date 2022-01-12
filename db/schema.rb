@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_12_031148) do
+ActiveRecord::Schema.define(version: 2022_01_12_031830) do
 
   create_table "hardwares", force: :cascade do |t|
     t.integer "server_id", null: false
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 2022_01_12_031148) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "server_softwares", force: :cascade do |t|
+    t.integer "server_id", null: false
+    t.integer "software_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["server_id"], name: "index_server_softwares_on_server_id"
+    t.index ["software_id"], name: "index_server_softwares_on_software_id"
+  end
+
   create_table "servers", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -46,4 +55,6 @@ ActiveRecord::Schema.define(version: 2022_01_12_031148) do
   end
 
   add_foreign_key "hardwares", "servers"
+  add_foreign_key "server_softwares", "servers"
+  add_foreign_key "server_softwares", "softwares"
 end

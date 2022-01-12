@@ -10,16 +10,16 @@
     </div>
   <% end %>
   <div class="mt-2">
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+  <div class="mt-2">
     <%= form.label :category, style: "display: block" %>
     <%= form.text_field :category, class: "form-control" %>
   </div>
   <div class="mt-2">
     <%= form.label :expires_at, style: "display: block" %>
     <%= form.date_field :expires_at, class: "form-control" %>
-  </div>
-  <div class="mt-2">
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name, class: "form-control" %>
   </div>
   <div class="mt-2">
     <%= form.submit "Save Software", class: "btn btn-primary" %>

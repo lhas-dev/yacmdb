@@ -1,4 +1,4 @@
-<%= form_with(model: @hardware) do |form| %>
+<%= form_with(model: @server_software) do |form| %>
   <% if @hardware.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(@hardware.errors.count, "error") %> prohibited this hardware from being saved:</h2>
@@ -11,36 +11,32 @@
   <% end %>
   <%= form.hidden_field :server_id, value: @server.id %>
   <div class="row align-items-end mt-2">
-    <div class="col-5">
-      <%= form.label :category, style: "display: block" %>
-      <%= form.select :category, Hardware.options, {}, class: "form-control" %>
-    </div>
-    <div class="col-5">
-      <%= form.label :value, style: "display: block" %>
-      <%= form.text_field :value, class: "form-control" %>
+    <div class="col-10">
+      <%= form.label :software, style: "display: block" %>
+      <%= form.select :software_id, Software.all.collect {|a| [a.name, a.id]}, {}, class: "form-control" %>
     </div>
     <div class="col-2">
-      <%= form.submit 'Add New Hardware', class: "btn w-100 btn-outline-primary" %>
+      <%= form.submit 'Save Software', class: "btn w-100 btn-outline-primary" %>
     </div>
   </div>
 <% end %>
 <table class="table mt-2">
   <thead>
     <tr>
-      <th>Kind</th>
-      <th>Value</th>
+      <th>Software</th>
+      <th>Expires At</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <% @server.hardwares.each do |hardware| %>
+    <% @server.server_softwares.each do |server_software| %>
       <tr>
-        <td><%= hardware.category %></td>
-        <td><%= hardware.value %></td>
+        <td><%= server_software.software.name %></td>
+        <td><%= server_software.software.expires_at.strftime("%d/%m/%Y") if server_software.software.expires_at %></td>
         <td>
           <div class="d-flex">
-            <%= link_to "Edit", edit_hardware_path(hardware), method: :delete, class: "btn btn-outline-secondary" %>
-            <%= button_to "Delete", hardware, method: :delete, class: "btn ms-2 btn-outline-danger" %></td>
+            <%= link_to "Edit", edit_software_path(server_software.software), method: :delete, class: "btn btn-outline-secondary" %>
+            <%= button_to "Delete", server_software, method: :delete, class: "btn ms-2 btn-outline-danger" %></td>
         </div>
       </tr>
     <% end %>

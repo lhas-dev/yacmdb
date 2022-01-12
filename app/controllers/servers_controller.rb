@@ -9,6 +9,7 @@ class ServersController < ApplicationController
   # GET /servers/1 or /servers/1.json
   def show
     @hardware = Hardware.new
+    @server_software = ServerSoftware.new
   end
 
   # GET /servers/new
