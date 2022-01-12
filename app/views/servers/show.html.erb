@@ -1,10 +1,41 @@
 <p style="color: green"><%= notice %></p>
-
-<%= render @server %>
-
-<div>
-  <%= link_to "Edit this server", edit_server_path(@server) %> |
-  <%= link_to "Back to servers", servers_path %>
-
-  <%= button_to "Destroy this server", @server, method: :delete %>
+<div class="row">
+  <div class="col-6">
+    <h1><%= @server.name %></h1>
+  </div>
+  <div class="col-6 d-flex justify-content-end align-items-center text-end" style="column-gap: 12px;">
+    <%= link_to "Edit server", edit_server_path(@server), class: "btn btn-outline-secondary" %>
+    <%= button_to "Destroy this server", @server, method: :delete, class: "btn btn-outline-danger" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="true">Overview</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="hardware-tab" data-bs-toggle="tab" data-bs-target="#hardware" type="button" role="tab" aria-controls="hardware" aria-selected="false">Hardware</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="softwares-tab" data-bs-toggle="tab" data-bs-target="#softwares" type="button" role="tab" aria-controls="softwares" aria-selected="false">Softwares</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="people-tab" data-bs-toggle="tab" data-bs-target="#people" type="button" role="tab" aria-controls="people" aria-selected="false">People</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+        <div class="card mt-4" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Model</h5>
+            <p class="card-text"><%= @server.model %></p>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="hardware" role="tabpanel" aria-labelledby="hardware-tab">hardware</div>
+      <div class="tab-pane fade" id="softwares" role="tabpanel" aria-labelledby="softwares-tab">softwares</div>
+      <div class="tab-pane fade" id="people" role="tabpanel" aria-labelledby="people-tab">people</div>
+    </div>
+  </div>
 </div>
