@@ -36,6 +36,9 @@
       <li class="nav-item" role="presentation">
         <button class="nav-link <% if tab == 'history' %>active<% end %>" id="history-tab" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab" aria-controls="history" aria-selected="false">History</button>
       </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link <% if tab == 'location' %>active<% end %>" id="location-tab" data-bs-toggle="tab" data-bs-target="#location" type="button" role="tab" aria-controls="location" aria-selected="false">Location</button>
+      </li>
     </ul>
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade <% if tab == 'home' %>show active<% end %>" id="overview" role="tabpanel" aria-labelledby="overview-tab">
@@ -50,6 +53,7 @@
       <div class="tab-pane fade  <% if tab == 'networks' %>show active<% end %>" id="networks" role="tabpanel" aria-labelledby="networks-tab"><%= render "servers/tabs/networks" %></div>
       <div class="tab-pane fade  <% if tab == 'tickets' %>show active<% end %>" id="tickets" role="tabpanel" aria-labelledby="tickets-tab"><%= render "servers/tabs/tickets" %></div>
       <div class="tab-pane fade  <% if tab == 'history' %>show active<% end %>" id="history" role="tabpanel" aria-labelledby="history-tab"><%= render "servers/tabs/history" %></div>
+      <div class="tab-pane fade  <% if tab == 'location' %>show active<% end %>" id="location" role="tabpanel" aria-labelledby="location-tab"><%= render "servers/tabs/location" %></div>
     </div>
   </div>
 </div>
