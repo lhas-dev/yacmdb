@@ -1,0 +1,37 @@
+<p style="color: green"><%= notice %></p>
+<div class="row">
+  <div class="col-8">
+    <h1>Softwares</h1>
+  </div>
+  <div class="col-4 text-end">
+    <%= link_to "Add New Software", new_software_path, class: "btn btn-primary" %>
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Expires at</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @softwares.each do |software| %>
+        <tr>
+          <td><%= software.name %>
+          </td>
+          <td><%= software.category %></td>
+          <td><%= software.expires_at.strftime("%d/%m/%Y") %></td>
+          <td>
+            <div class="d-flex">
+              <%= link_to "Show", software, class: "btn btn-outline-primary" %>
+              <%= button_to "Delete", software, method: :delete, class: "btn ms-2 btn-outline-danger" %></td>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

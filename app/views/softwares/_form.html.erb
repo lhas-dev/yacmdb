@@ -1,0 +1,27 @@
+<%= form_with(model: software) do |form| %>
+  <% if software.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(software.errors.count, "error") %> prohibited this software from being saved:</h2>
+      <ul>
+        <% software.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="mt-2">
+    <%= form.label :category, style: "display: block" %>
+    <%= form.text_field :category, class: "form-control" %>
+  </div>
+  <div class="mt-2">
+    <%= form.label :expires_at, style: "display: block" %>
+    <%= form.date_field :expires_at, class: "form-control" %>
+  </div>
+  <div class="mt-2">
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+  <div class="mt-2">
+    <%= form.submit "Save Software", class: "btn btn-primary" %>
+  </div>
+<% end %>

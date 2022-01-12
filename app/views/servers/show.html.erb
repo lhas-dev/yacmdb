@@ -27,94 +27,13 @@
     </ul>
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade <% if tab == 'home' %>show active<% end %>" id="overview" role="tabpanel" aria-labelledby="overview-tab">
-        <div class="row">
-          <div class="col-6">
-            <div class="card mt-4">
-              <div class="card-body">
-                <h5 class="card-title">Model</h5>
-                <p class="card-text"><%= @server.model %></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="card mt-4">
-              <div class="card-body">
-                <h5 class="card-title">Status</h5>
-                <p class="card-text text-danger">Inactive</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12">
-            <div class="card mt-4">
-              <div class="card-body">
-                <h5 class="card-title">Hardware</h5>
-                <ul class="list-group list-group-flush">
-                  <% @server.hardwares.each do |hardware| %>
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                      <div class="me-auto">
-                        <div class="fw-bold"><%= hardware.category %></div>
-                        <%= hardware.value %>
-                      </div>
-                    </li>
-                  <% end %>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+        <%= render "servers/tabs/overview" %>
       </div>
       <div class="tab-pane fade <% if tab == 'hardware' %>show active<% end %>" id="hardware" role="tabpanel" aria-labelledby="hardware-tab">
-        <%= form_with(model: @hardware) do |form| %>
-          <% if @hardware.errors.any? %>
-            <div style="color: red">
-              <h2><%= pluralize(@hardware.errors.count, "error") %> prohibited this hardware from being saved:</h2>
-              <ul>
-                <% @hardware.errors.each do |error| %>
-                  <li><%= error.full_message %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
-          <%= form.hidden_field :server_id, value: @server.id %>
-          <div class="row align-items-end mt-2">
-            <div class="col-5">
-              <%= form.label :category, style: "display: block" %>
-              <%= form.select :category, Hardware.options, {}, class: "form-control" %>
-            </div>
-            <div class="col-5">
-              <%= form.label :value, style: "display: block" %>
-              <%= form.text_field :value, class: "form-control" %>
-            </div>
-            <div class="col-2">
-              <%= form.submit 'Add New Hardware', class: "btn w-100 btn-outline-primary" %>
-            </div>
-          </div>
-        <% end %>
-        <table class="table mt-2">
-          <thead>
-            <tr>
-              <th>Kind</th>
-              <th>Value</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @server.hardwares.each do |hardware| %>
-              <tr>
-                <td><%= hardware.category %></td>
-                <td><%= hardware.value %></td>
-                <td>
-                  <div class="d-flex">
-                    <%= link_to "Edit", edit_hardware_path(hardware), method: :delete, class: "btn btn-outline-secondary" %>
-                    <%= button_to "Delete", hardware, method: :delete, class: "btn ms-2 btn-outline-danger" %></td>
-                </div>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+        <%= render "servers/tabs/hardware" %>
       </div>
-      <div class="tab-pane fade  <% if tab == 'softwares' %>show active<% end %>" id="softwares" role="tabpanel" aria-labelledby="softwares-tab">softwares</div>
-      <div class="tab-pane fade  <% if tab == 'people' %>show active<% end %>" id="people" role="tabpanel" aria-labelledby="people-tab">people</div>
+      <div class="tab-pane fade  <% if tab == 'softwares' %>show active<% end %>" id="softwares" role="tabpanel" aria-labelledby="softwares-tab"><%= render "servers/tabs/softwares" %></div>
+      <div class="tab-pane fade  <% if tab == 'people' %>show active<% end %>" id="people" role="tabpanel" aria-labelledby="people-tab"><%= render "servers/tabs/people" %></div>
     </div>
   </div>
 </div>

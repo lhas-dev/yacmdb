@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_12_021628) do
+ActiveRecord::Schema.define(version: 2022_01_12_031148) do
 
   create_table "hardwares", force: :cascade do |t|
     t.integer "server_id", null: false
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 2022_01_12_021628) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "model"
+  end
+
+  create_table "softwares", force: :cascade do |t|
+    t.string "category"
+    t.date "expires_at"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "hardwares", "servers"
