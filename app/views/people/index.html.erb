@@ -29,7 +29,10 @@
           <td><%= person.phone %></td>
           <td><%= person.email %></td>
           <td>
-            <%= link_to "Show", person %></td>
+            <div class="d-flex">
+              <%= link_to "Show", person, class: "btn btn-outline-primary" %>
+              <%= button_to "Delete", person, method: :delete, class: "btn ms-2 btn-outline-danger" %></div>
+          </td>
         </tr>
       <% end %>
     </tbody>
