@@ -1,14 +1,31 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Servers</h1>
-
-<div id="servers">
-  <% @servers.each do |server| %>
-    <%= render server %>
-    <p>
-      <%= link_to "Show this server", server %>
-    </p>
-  <% end %>
+<div class="row">
+  <div class="col-8">
+    <h1>Servers</h1>
+  </div>
+  <div class="col-4 text-end">
+    <%= link_to "Add New server", new_server_path, class: "btn btn-primary" %>
+  </div>
 </div>
-
-<%= link_to "New server", new_server_path %>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Model</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @servers.each do |server| %>
+        <tr>
+          <td><%= server.name %>
+          </td>
+          <td><%= server.model %></td>
+          <td>
+            <%= link_to "Show", server %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

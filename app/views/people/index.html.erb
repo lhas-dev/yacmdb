@@ -1,0 +1,35 @@
+<p style="color: green"><%= notice %></p>
+<div class="row">
+  <div class="col-8">
+    <h1>People</h1>
+  </div>
+  <div class="col-4 text-end">
+    <%= link_to "Add New Person", new_person_path, class: "btn btn-primary" %>
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @people.each do |person| %>
+        <tr>
+          <td><%= person.name %>
+          </td>
+          <td><%= person.department %></td>
+          <td><%= person.phone %></td>
+          <td><%= person.email %></td>
+          <td>
+            <%= link_to "Show", person %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
