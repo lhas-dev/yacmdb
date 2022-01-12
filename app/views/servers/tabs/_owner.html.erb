@@ -11,9 +11,13 @@
   <% end %>
   <%= form.hidden_field :server_id, value: @server.id %>
   <div class="row align-items-end mt-2">
-    <div class="col-10">
+    <div class="col-5">
       <%= form.label :person, style: "display: block" %>
       <%= form.select :people_id, Person.all.collect {|a| [a.name, a.id]}, {}, class: "form-control" %>
+    </div>
+    <div class="col-5">
+      <%= form.label :role, style: "display: block" %>
+      <%= form.select :role, ["Owner", "Staff"], {}, class: "form-control" %>
     </div>
     <div class="col-2">
       <%= form.submit 'Save Person', class: "btn w-100 btn-outline-primary" %>
@@ -24,6 +28,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Role</th>
       <th>Department</th>
       <th>Team</th>
       <th>Actions</th>
@@ -33,6 +38,7 @@
     <% @server.server_people.each do |server_person| %>
       <tr>
         <td><%= server_person.people.name %></td>
+        <td><%= server_person.role %></td>
         <td><%= server_person.people.department %></td>
         <td><%= server_person.people.team %></td>
         <td>

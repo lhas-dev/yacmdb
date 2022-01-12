@@ -25,7 +25,7 @@ class ServerPeopleController < ApplicationController
 
     respond_to do |format|
       if @server_person.save
-        format.html { redirect_to server_url(@server_person.server, tab: "people"), notice: "Server person was successfully created." }
+        format.html { redirect_to server_url(@server_person.server, tab: "owner"), notice: "Server person was successfully created." }
         format.json { render :show, status: :created, location: @server_person }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class ServerPeopleController < ApplicationController
   def update
     respond_to do |format|
       if @server_person.update(server_person_params)
-        format.html { redirect_to server_url(@server_person.server, tab: "people"), notice: "Server person was successfully updated." }
+        format.html { redirect_to server_url(@server_person.server, tab: "owner"), notice: "Server person was successfully updated." }
         format.json { render :show, status: :ok, location: @server_person }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class ServerPeopleController < ApplicationController
     @server_person.destroy
 
     respond_to do |format|
-      format.html { redirect_to server_url(server, tab: "people"), notice: "Server person was successfully destroyed." }
+      format.html { redirect_to server_url(server, tab: "owner"), notice: "Server person was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -66,6 +66,6 @@ class ServerPeopleController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def server_person_params
-      params.require(:server_person).permit(:server_id, :people_id)
+      params.require(:server_person).permit(:server_id, :role, :people_id)
     end
 end

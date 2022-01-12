@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_12_033134) do
+ActiveRecord::Schema.define(version: 2022_01_12_034901) do
 
   create_table "hardwares", force: :cascade do |t|
     t.integer "server_id", null: false
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2022_01_12_033134) do
     t.integer "people_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "role"
     t.index ["people_id"], name: "index_server_people_on_people_id"
     t.index ["server_id"], name: "index_server_people_on_server_id"
   end
