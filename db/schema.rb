@@ -12,8 +12,11 @@
 
 ActiveRecord::Schema.define(version: 2022_01_12_034901) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "hardwares", force: :cascade do |t|
-    t.integer "server_id", null: false
+    t.bigint "server_id", null: false
     t.string "category"
     t.string "value"
     t.datetime "created_at", precision: 6, null: false
@@ -32,8 +35,8 @@ ActiveRecord::Schema.define(version: 2022_01_12_034901) do
   end
 
   create_table "server_people", force: :cascade do |t|
-    t.integer "server_id", null: false
-    t.integer "people_id", null: false
+    t.bigint "server_id", null: false
+    t.bigint "people_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "role"
@@ -42,8 +45,8 @@ ActiveRecord::Schema.define(version: 2022_01_12_034901) do
   end
 
   create_table "server_softwares", force: :cascade do |t|
-    t.integer "server_id", null: false
-    t.integer "software_id", null: false
+    t.bigint "server_id", null: false
+    t.bigint "software_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["server_id"], name: "index_server_softwares_on_server_id"
