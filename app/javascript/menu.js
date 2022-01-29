@@ -18,4 +18,9 @@ $(document).on("turbo:load", function () {
     $(".sm-content").removeClass("sm-content--expanded");
     $(".sm-header__menu i").removeClass("fa-xmark").addClass("fa-bars");
   });
+
+  $(".dropdown-menu").on("click.bs.dropdown", function (e) {
+    e.stopPropagation();
+    e.preventDefault();
+  });
 });

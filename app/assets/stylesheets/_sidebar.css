@@ -1,0 +1,20 @@
+.sm-sidebar {
+  width: 0;
+  height: 100%;
+  transition: all 0.15s;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.sm-sidebar--expanded {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .sm-sidebar--expanded {
+    width: 300px;
+  }
+  .sm-sidebar__close {
+    display: none;
+  }
+}

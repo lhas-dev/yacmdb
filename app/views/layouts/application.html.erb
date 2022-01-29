@@ -14,39 +14,9 @@
   </head>
   <body>
     <div class="sm-wrapper">
-      <div class="sm-sidebar">
-        <button class="sm-sidebar__close"><i class="fa-solid fa-xmark"></i></button>
-        sidebar aqui
-      </div>
+      <%= render partial: 'sidebar' %>
       <div class="sm-content">
-        <header class="sm-header">
-          <button class="sm-header__menu">
-            <i class="fa-solid fa-bars"></i>
-          </button>
-          <h1>Soft Management</h1>
-          <div class="dropdown ms-auto">
-            <button class="sm-header__avatar dropdown-toggle" type="button" data-bs-toggle="dropdown">
-              <img src="https://avatars.githubusercontent.com/u/41020086?v=4" alt="User photo" />
-            </button>
-            <div class="dropdown-menu">
-              <div class="row">
-                <div class="col-8">
-                  <p>Mlabs Software Ltda</p>
-                </div>
-                <div class="col-4"><a class="logout" href="#">Logout</a></div>
-              </div>
-              <div class="row mt-2 align-items-center">
-                <div class="col-5"><img src="https://avatars.githubusercontent.com/u/41020086?v=4" alt="User photo" />
-                </div>
-                <div class="col-7">
-                  <h2>Luiz Almeida</h2>
-                  <p>luizhrqas@gmail.com</p>
-                  <a href="#">Minha Conta</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
+        <%= render partial: 'header' %>
         <div class="container-fluid">
           <%= yield %>
         </div>
