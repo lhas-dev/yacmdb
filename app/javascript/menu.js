@@ -23,4 +23,12 @@ $(document).on("turbo:load", function () {
     e.stopPropagation();
     e.preventDefault();
   });
+
+  $(".sm-header__search .form-control").on("focus", function () {
+    $(".sm-header__search__response").show();
+  });
+
+  $(".sm-header__search .form-control").on("blur", function () {
+    $(".sm-header__search__response").hide();
+  });
 });
