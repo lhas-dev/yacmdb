@@ -3,16 +3,31 @@
   height: 100%;
   transition: all 0.15s;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.1);
+  background: #222;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .sm-sidebar--expanded {
   width: 100%;
 }
 
+.sm-sidebar h3 {
+  color: #fff;
+  font-size: 21px;
+  margin: 20px;
+}
+
+.sm-sidebar__close {
+  margin-left: auto;
+  display: block;
+  font-size: 32px;
+  color: #fff;
+}
+
 @media (min-width: 768px) {
   .sm-sidebar--expanded {
     width: 300px;
+    flex-shrink: 0;
   }
   .sm-sidebar__close {
     display: none;

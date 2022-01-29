@@ -1,6 +1,5 @@
 .sm-header {
   width: 100%;
-  background: #fff;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -12,6 +11,10 @@
 .sm-header h1 {
   margin: 0;
   font-size: 21px;
+}
+.sm-header h1 a {
+  color: #222;
+  text-decoration: none;
 }
 
 .sm-header__avatar {
