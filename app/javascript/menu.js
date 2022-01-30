@@ -1,5 +1,5 @@
 $(document).on("turbo:load", function () {
-  $(".sm-header__menu").on("touchend click", function () {
+  $(".sm-header__menu").on("click", function () {
     const isExpanded = $(".sm-sidebar").hasClass("sm-sidebar--expanded");
 
     if (isExpanded) {
@@ -13,7 +13,7 @@ $(document).on("turbo:load", function () {
     }
   });
 
-  $(".sm-sidebar__close").on("touchend click", function () {
+  $(".sm-sidebar__close").on("click", function () {
     $(".sm-sidebar").removeClass("sm-sidebar--expanded");
     $(".sm-content").removeClass("sm-content--expanded");
     $(".sm-header__menu i").removeClass("fa-xmark").addClass("fa-bars");
